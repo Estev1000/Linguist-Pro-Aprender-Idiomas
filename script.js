@@ -170,6 +170,12 @@ btnSpeak.onclick = () => {
     const voice = voices.find(v => v.lang.startsWith(clientLang.value.split('-')[0]));
     if (voice) utterance.voice = voice;
 
+    // Obtener la velocidad y aplicarla
+    const speedSelect = document.getElementById('speech-speed');
+    if (speedSelect) {
+        utterance.rate = parseFloat(speedSelect.value);
+    }
+
     synthesis.speak(utterance);
     
     btnSpeak.style.background = "#fff";
